@@ -79,13 +79,13 @@ namespace Gameapp
                         Console.WriteLine("Advanced Level");
                         System.Reflection.Assembly advancedLevelLib =
                             System.Reflection.Assembly.LoadFile(@"C:\Users\shubham.m\Downloads\download\AdvancedLevelLib.dll");
-                        System.Type lvl3ClassRef = advancedLevelLib.GetType("AdvancedLevelLib.AdvancedLevelType");
-                        if (lvl3ClassRef != null)
+                        System.Type advanceClassRef = advancedLevelLib.GetType("AdvancedLevelLib.AdvancedLevelType");
+                        if (advanceClassRef != null)
                         {
-                            if (lvl3ClassRef.IsClass)
+                            if (advanceClassRef.IsClass)
                             {
-                                Object advancedObjRef = System.Activator.CreateInstance(lvl3ClassRef);
-                                System.Reflection.MethodInfo advanceMethodRef = lvl3ClassRef.GetMethod("Begin");
+                                Object advancedObjRef = System.Activator.CreateInstance(advanceClassRef);
+                                System.Reflection.MethodInfo advanceMethodRef = advanceClassRef.GetMethod("Begin");
                                 if (!advanceMethodRef.IsStatic)
                                 {
                                     Object advancedResult = advanceMethodRef.Invoke(advancedObjRef, new Object[] { "shubham", 50 });
